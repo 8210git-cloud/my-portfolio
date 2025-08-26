@@ -144,15 +144,88 @@ const portfolioData = {
   blogs: [
     {
       title: "From Curiosity to Scale: Engineering My Full-Stack Future",
-      content: ""
+      content: `
+      It all started because I got stuck. Not on a coding problem, but on a website. 
+      I was trying to customize my Tumblr blog back in the day, fiddling with HTML and CSS, 
+      and I just had to know how the button I designed actually talked to the server to save my changes. 
+      That frustration—that simple "how does this work?" feeling—is what finally pushed me to go beyond the 
+      browser's inspector and into my first JavaScript tutorial.
+
+      My learning path has been anything but linear. I’d get obsessed with making a React component 
+      perfectly reusable, then spend a week down a rabbit hole learning about PostgreSQL indexing 
+      because my queries were slow. I’ve had moments of pure rage staring at a terminal error message 
+      for hours, only to have the solution hit me while I was making a sandwich. Those small victories, 
+      the quiet click of a puzzle piece snapping into place, are what kept me going. It taught me that 
+      the process isn't about knowing everything, but about learning how to figure anything out.
+
+      Lately, I've been pushing myself to think beyond just making it work. I rebuilt a project's backend 
+      three times—first just to function, then to be more secure, and finally to actually handle scale. 
+      I wanted to understand the why behind the principles I read about in tech blogs. Deploying my own apps 
+      using Docker and a cloud server felt like a huge leap. It was messy and I broke things constantly, 
+      but finally seeing something I built live on the internet, for anyone to use, was an incredible feeling. 
+      It’s where the frontend and backend magic finally came together.
+
+      For me, the biggest shift wasn't learning a new framework; it was learning to think like an engineer. 
+      It’s about asking "how might this break?" as much as "how do I build this?" I get a real kick out of 
+      crafting clean, readable code that another person could actually understand and work on. 
+      I love the design process just as much as the debugging process.
+
+      I'm looking for a team where that curiosity is valued. I want to work on tough problems that matter, 
+      to learn from brilliant people, and to eventually build things that feel as seamless and powerful as 
+      the apps that inspired me to start this journey in the first place. I'm ready to roll up my sleeves 
+      and contribute.
+    `
     },
     {
-      title: "Understanding React Hooks",
-      content: "Another blog post. You can use this to explain a technical concept in a way that shows your expertise. This particular post dives deep into the use of useState and useEffect hooks."
+      title: "JapaMitra: Coding Mindfulness into Reality",
+      content: `**Building a Digital Spiritual Companion**
+       When I first conceived of JapaMitra, I wanted to bridge ancient spiritual practices with modern technology. As someone who values mindfulness but struggled with maintaining focus during meditation, I recognized the need for a tool that could help practitioners track progress without disrupting their spiritual flow. Traditional mala beads presented several challenges - they could be easily dropped, required manual counting that often led to distractions, and offered no way to track progress over time.
+       **Technical Architecture and Implementation**
+       The development journey presented fascinating technical challenges. Creating smooth, responsive mala bead animations using Android Canvas required significant experimentation with custom drawing techniques and touch event handling. I spent considerable time optimizing the rendering pipeline to ensure the beads moved fluidly with each tap, maintaining consistent performance across devices.
+       Implementing real-time synchronization with Firebase posed another interesting challenge. I needed to ensure users could seamlessly switch between devices without losing meditation progress, which required careful design of the data model and conflict resolution strategies. The offline-first approach was particularly complex but crucial for ensuring the app remained functional without internet connectivity.
+       **Designing for Accessibility**
+       Perhaps the most valuable lesson came from designing for accessibility. Creating the "Walking Mode" with large tap targets and high-contrast visuals required me to think beyond technical implementation and truly consider diverse user needs. This experience reinforced the importance of inclusive design in creating applications that serve all users effectively.
+       **Reflections and Learnings**
+       Throughout this project, I deepened my understanding of key Android development concepts. Working with Canvas API taught me about efficient drawing techniques and performance optimization. Implementing the MVVM architecture with Repository pattern helped me create a clean, maintainable codebase that separated concerns effectively.
+       Building JapaMitra was more than a technical exercise - it was a journey in creating something meaningful that could genuinely enhance people's spiritual practices. The positive feedback from users, particularly elderly practitioners who appreciated the accessibility features, has been incredibly rewarding.
+       This project solidified my passion for creating technology that serves human needs and enhances wellbeing. The journey of building JapaMitra has been one of both technical growth and personal reflection, reminding me that the most meaningful applications often emerge at the intersection of technology and human experience. `
     },
     {
-      title: "Building Scalable APIs with Node.js",
-      content: "A technical deep dive into designing and implementing RESTful APIs with Node.js. It covers best practices for routing, middleware, and database integration to ensure scalability and maintainability."
+      title: "From Maps to Rides: Building My Own Uber-Inspired App",
+      content: `
+       Building My Own Mini Uber Clone with Firebase & Google Maps
+       Recently, I took on the challenge of building a **Mini Uber Clone**, a simplified version of the popular ride-booking app. My intention was not to create a production-level product but to push myself to work with **real-world technologies** that power modern mobile applications. I wanted to explore how authentication, real-time databases, and live location tracking come together to create a seamless user experience.
+       The app includes several important features that make it functional and engaging. I implemented **Firebase Authentication** to allow users to securely sign up and log in. I also integrated **Google Maps and Location Services** to display the user’s live location directly on the map, which was one of the most exciting parts to work on. For storing and syncing user and ride data, I used **Firebase Firestore and Realtime Database**, which gave me valuable experience working with cloud-based services. On the design side, I built the entire interface using **Jetpack Compose**, ensuring that the app feels modern, smooth, and responsive.
+       One of the things I enjoyed most about this project was seeing how small pieces of code connect the UI to backend services. For example, adding Firebase Authentication with just a few lines of Kotlin allowed me to create a real sign-in flow that worked reliably with Firebase. It was a great feeling to see the login screen transition smoothly into the app once authentication succeeded.
+       Throughout the process, I learned a lot about structuring an Android project using **Gradle Kotlin DSL**, which made dependency management cleaner and easier to maintain. Working with Jetpack Compose gave me a new appreciation for declarative UI design, and connecting it with Firebase taught me how to manage **real-time data updates** in a practical way.
+       Overall, building this Mini Uber Clone was a rewarding experience. It gave me hands-on knowledge of how complex apps like Uber function behind the scenes and helped me strengthen my skills in Android development. While this is only a simplified version, I now have a solid foundation to expand it further in the future by adding features like driver mode, ride history, and push notifications. This project has been one of the most exciting additions to my portfolio, and it has given me confidence in my ability to build scalable and meaningful mobile applications.
+      `
+    },
+    {
+      title: "Pixels of Me: Building My Portfolio Website",
+      content: `
+       When I decided to build my portfolio website, I wanted it to be more than just a static page showcasing my work—I wanted it to feel like an extension of me. Many portfolios end up looking similar: minimal text, a few project links, and a contact form. While that structure works, it didn’t feel personal enough. I wanted to build something that would reflect **who I am, what inspires me, and how I think as a developer**.
+       That’s when I realized: some of my biggest design inspirations were already right in front of me—**Google, Netflix, and Amazon**. These are platforms I interact with almost every single day. Beyond their functionality, I’ve always admired how they combine usability with design. They aren’t just websites; they’re experiences. So, I asked myself: *What if my portfolio could channel elements from these platforms, blending their familiar design languages into my own personal space?*
+       Drawing Inspiration from Everyday Giants:- 
+       * **Google’s Minimalism:**
+       Google has always inspired me with its simplicity. The homepage is iconic—clean, distraction-free, and purpose-driven. I wanted my portfolio to carry that same sense of **clarity and focus**, where visitors instantly know where to go and what to do.
+       * **Netflix’s Immersion:**
+       Netflix is all about engagement. The visuals, the scrolling sections, the way it feels alive—I love how it pulls users into an experience. I mirrored that in my portfolio by using **immersive layouts, bold design choices, and smooth transitions** that make navigating my site feel less like browsing and more like exploring.
+       * **Amazon’s Structure:**
+       Amazon may not always be “pretty,” but it’s incredibly effective. Everything is categorized, layered, and easy to access. For my portfolio, I used that approach for **structuring content clearly**—projects, skills, and contact sections are easy to find and well-organized, ensuring no recruiter or visitor has to “hunt” for information.
+       By combining these inspirations, I was able to create a website that isn’t just professional but also very **authentic to me**.
+       #### **The Technical Journey**
+       Building the site was as much a technical challenge as it was a design one. I built the portfolio using:
+       * **HTML, CSS, and JavaScript** for the core structure and interactivity.
+       * **Tailwind CSS** for styling, which allowed me to rapidly prototype layouts while keeping the design responsive across all screen sizes.
+       * **Animations and transitions** to make the experience feel smooth and modern, much like Netflix’s interface.
+       * **Clean code organization** inspired by Amazon’s focus on scalability—so that even as I add more projects, the site remains easy to maintain.
+       Every feature was intentional. For example, the navigation menu reflects the **Google-like simplicity**, the project showcase channels a **Netflix-style browsing experience**, and the overall content layout borrows from **Amazon’s clear structure**.
+       #### **Why This Portfolio Matters to Me**
+       This project was more than just a way to “tick off” a requirement for recruiters. It was about creating a digital home that I could proudly point people to, knowing it reflects both my **technical ability** and my **design perspective**.
+       Through this portfolio, I’ve not only showcased my projects and skills but also my ability to **draw inspiration from the world around me** and translate it into code. To me, that’s what being a developer is about: taking influences, solving problems, and creating experiences that are meaningful.
+       Building my portfolio taught me that design isn’t just about colors and layouts—it’s about **storytelling**. And this site tells my story, one pixel at a time.
+       `
     }
   ],
   primeContent: "Welcome to your exclusive PRIME portfolio content! This section contains privileged information about my most complex projects, available only to recruiters with a 'Prime' membership."
