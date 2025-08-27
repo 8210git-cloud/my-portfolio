@@ -1,3 +1,68 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* === Custom animations for intro === */
+@keyframes float-3d {
+  0%   { transform: translateY(0) translateZ(0) rotateY(0deg) rotateX(0deg) scale(1); opacity: 0.2; }
+  25%  { transform: translateY(-20px) translateZ(150px) rotateY(90deg) rotateX(15deg) scale(1.2); opacity: 0.35; }
+  50%  { transform: translateY(0) translateZ(0) rotateY(180deg) rotateX(0deg) scale(1); opacity: 0.2; }
+  75%  { transform: translateY(20px) translateZ(-200px) rotateY(270deg) rotateX(-15deg) scale(0.8); opacity: 0.15; }
+  100% { transform: translateY(0) translateZ(0) rotateY(360deg) rotateX(0deg) scale(1); opacity: 0.2; }
+}
+.animate-float-3d {
+  animation: float-3d 12s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+@keyframes glow3d {
+  0%, 100% { box-shadow: 0 0 20px #9333ea, 0 0 40px #7e22ce inset, 0 0 60px rgba(147,51,234,.4); }
+  50%      { box-shadow: 0 0 60px #c084fc, 0 0 120px #9333ea inset, 0 0 100px rgba(147,51,234,.6); }
+}
+.animate-glow-3d { animation: glow3d 3s infinite alternate; }
+
+.perspective-1000 { perspective: 1000px; }
+
+@keyframes fadeIn { from { opacity: 0; transform: scale(.98); } to { opacity: 1; transform: scale(1); } }
+@keyframes fadeOut { from { opacity: 1; transform: scale(1); } to { opacity: 0; transform: scale(.98); } }
+.animate-fade-in { animation: fadeIn .6s ease forwards; }
+.animate-fade-out { animation: fadeOut .6s ease forwards; }
+
+.bg-animated {
+  background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #ff0099);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(168, 85, 247, 0.6), 0 0 20px rgba(168, 85, 247, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(236, 72, 153, 0.9), 0 0 40px rgba(236, 72, 153, 0.6);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}

@@ -1,6 +1,53 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Mail, Briefcase, FileText, User, Home, BookOpen, ChevronRight, Check, Search, MapPin, ShoppingCart, Menu, Grid, Bell, Play, Info, ArrowLeft, XCircle } from 'lucide-react';
 
+
+const styles = `
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-20px) rotate(5deg); }
+  66% { transform: translateY(-10px) rotate(-3deg); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(147, 51, 234, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(147, 51, 234, 0.6); }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.pulse-animation {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.glow-animation {
+  animation: glow 3s ease-in-out infinite;
+}
+`;
+
+
 // Data file for easy customization
 const portfolioData = {
   name: "KHUSHI SINGH",
@@ -230,6 +277,127 @@ const portfolioData = {
   ],
   primeContent: "Welcome to your exclusive PRIME portfolio content! This section contains privileged information about my most complex projects, available only to recruiters with a 'Prime' membership."
 };
+//  portfolioData
+const FloatingLogos = () => {
+  const logos = [
+    { name: 'Google', color: '#4285F4', delay: '0s' },
+    { name: 'Netflix', color: '#E50914', delay: '1s' },
+    { name: 'Amazon', color: '#FF9900', delay: '2s' },
+    { name: 'Tesla', color: '#CC0000', delay: '3s' },
+    { name: 'Meta', color: '#1877F2', delay: '4s' },
+    { name: 'Apple', color: '#A6B1B7', delay: '5s' },
+    { name: 'Microsoft', color: '#00BCF2', delay: '0.5s' },
+    { name: 'Samsung', color: '#1428A0', delay: '1.5s' },
+    { name: 'SpaceX', color: '#005288', delay: '2.5s' },
+    { name: 'Uber', color: '#000000', delay: '3.5s' },
+    { name: 'Adobe', color: '#FF0000', delay: '4.5s' },
+    { name: 'Oracle', color: '#F80000', delay: '1.2s' },
+    { name: 'Swiggy', color: '#00BCF2', delay: '0.5s' },
+    { name: 'Blinkit', color: '#1428A0', delay: '1.5s' },
+    { name: 'Zepto', color: '#005288', delay: '2.5s' },
+    { name: 'Zomato', color: '#000000', delay: '3.5s' },
+    { name: 'Hewlet Packard', color: '#FF0000', delay: '4.5s' },
+    { name: 'JP Morgan', color: '#F80000', delay: '1.2s' },
+  ];
+
+  return (
+    <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+      {/* Floating company names */}
+      {logos.map((logo, index) => (
+        <div
+          key={logo.name}
+          className="absolute text-lg font-bold opacity-30 float-animation"
+          style={{
+            color: logo.color,
+            left: `${Math.random() * 90}%`,
+            top: `${Math.random() * 90}%`,
+            animationDelay: logo.delay,
+            animationDuration: `${6 + (index % 4)}s`,
+            fontSize: `${18 + Math.random() * 8}px`,
+          }}
+        >
+          {logo.name}
+        </div>
+      ))}
+      
+      {/* Additional floating elements for fuller coverage */}
+      {[...Array(20)].map((_, i) => (
+        <div
+          key={`extra-${i}`}
+          className="absolute text-sm font-semibold opacity-25 float-animation"
+          style={{
+            color: logos[i % logos.length].color,
+            left: `${Math.random() * 95}%`,
+            top: `${Math.random() * 95}%`,
+            animationDelay: `${Math.random() * 6}s`,
+            animationDuration: `${8 + Math.random() * 4}s`,
+            textShadow: `0 0 10px ${logos.color}, 0 0 20px ${logos.color}`,
+            filter: `drop-shadow(0 0 8px ${logos.color})`,
+          }}
+        >
+          {logos[i % logos.length].name}
+        </div>
+      ))}
+
+      {/* Geometric shapes */}
+      {[...Array(15)].map((_, i) => (
+        <div
+          key={`shape-${i}`}
+          className="absolute opacity-5 float-animation"
+          style={{
+            left: `${Math.random() * 90}%`,
+            top: `${Math.random() * 90}%`,
+            width: `${20 + Math.random() * 30}px`,
+            height: `${20 + Math.random() * 30}px`,
+            background: `linear-gradient(45deg, ${logos[i % logos.length].color}, transparent)`,
+            borderRadius: Math.random() > 0.5 ? '50%' : '0%',
+            animationDelay: `${Math.random() * 8}s`,
+            animationDuration: `${10 + Math.random() * 5}s`,
+          }}
+        />
+      ))}
+
+      {/* Connecting lines */}
+      {[...Array(8)].map((_, i) => (
+        <div
+          key={`line-${i}`}
+          className="absolute opacity-3 float-animation"
+          style={{
+            left: `${Math.random() * 80}%`,
+            top: `${Math.random() * 80}%`,
+            width: `${100 + Math.random() * 200}px`,
+            height: '1px',
+            background: `linear-gradient(90deg, transparent, ${logos[i % logos.length].color}, transparent)`,
+            animationDelay: `${Math.random() * 10}s`,
+            animationDuration: `${15 + Math.random() * 5}s`,
+            transform: `rotate(${Math.random() * 360}deg)`,
+          }}
+        />
+      ))}
+    </div>
+  );
+};
+const BackgroundEffects = () => {
+  return (
+    <div className="fixed inset-0 pointer-events-none z-0">
+      {/* Gradient orbs */}
+      <div className="absolute top-20 left-10 w-64 h-64 bg-purple-600 rounded-full opacity-10 blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-32 right-16 w-80 h-80 bg-blue-500 rounded-full opacity-8 blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+      <div className="absolute top-1/2 left-1/3 w-48 h-48 bg-pink-500 rounded-full opacity-6 blur-3xl animate-pulse" style={{animationDelay: '4s'}}></div>
+      
+      {/* Grid pattern */}
+      <div className="absolute inset-0 opacity-5"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(147, 51, 234, 0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(147, 51, 234, 0.1) 1px, transparent 1px)
+          `,
+          backgroundSize: '50px 50px'
+        }}>
+      </div>
+    </div>
+  );
+};
 
 // Tailwind CSS theme definitions.
 const themes = {
@@ -250,9 +418,8 @@ const themes = {
     primary: 'bg-[#ff9900]',
     secondary: 'bg-[#232f3e]',
     accent: 'text-[#ff9900]',
-    logo: 'https://placehold.co/400x100/131921/ff9900?text=Amazon+Logo',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg',
     navLogo: 'https://placehold.co/100x30/131921/ff9900?text=Amazon+Logo',
-    background: 'https://placehold.co/1920x1080/131921/ff9900/white?font=montserrat&text=Amazon+Background',
     backgroundPosition: 'top'
   },
   google: {
@@ -261,9 +428,8 @@ const themes = {
     primary: 'bg-blue-500',
     secondary: 'bg-[#202124]',
     accent: 'text-blue-400',
-    logo: 'https://placehold.co/400x100/3c4043/4285F4?text=Google+Logo',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg',
     navLogo: 'https://placehold.co/100x30/3c4043/4285F4?text=Google+Logo',
-    background: 'https://placehold.co/1920x1080/FFFFFF/3c4043?font=montserrat&text=Google+Background',
     backgroundPosition: 'center'
   },
   netflix: {
@@ -272,9 +438,8 @@ const themes = {
     primary: 'bg-[#e50914]',
     secondary: 'bg-[#222222]',
     accent: 'text-[#e50914]',
-    logo: 'https://placehold.co/400x100/141414/e50914?text=Netflix+Logo',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg',
     navLogo: 'https://placehold.co/100x30/141414/e50914?text=Netflix+Logo',
-    background: 'https://placehold.co/1920x1080/141414/e50914?font=montserrat&text=Netflix+Background',
     backgroundPosition: 'center'
   }
 };
@@ -492,26 +657,69 @@ const PortfolioContent = ({ activeSection, activeTheme, handleThemeChange, onAdd
   const closeModal = () => setSelectedItem(null);
   
   if (activeSection === 'home') {
-    return (
-      <Section id="home" title="" activeTheme={activeTheme}>
-        <div className="flex flex-col items-center text-center">
-          {activeTheme.logo ? (
-            <img src={activeTheme.logo} alt={`${activeTheme.name} logo`} className="mb-8 w-64 md:w-96 transition-all duration-500" />
-          ) : (
-            <div className="flex flex-col items-center">
-              <div className={`relative inline-block mb-8 rounded-full shadow-2xl transition-all duration-500 hover:scale-105 ${activeTheme.primary}`}>
-                <img src={portfolioData.photoUrl} alt="Your Name" className="object-cover w-48 h-48 rounded-full border-4 border-white transform hover:rotate-3 transition-transform duration-300" />
-                <div className={`absolute inset-0 rounded-full border-4 border-white animate-pulse ${activeTheme.primary}`}></div>
-              </div>
-              <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">{portfolioData.name}</h1>
+  return (
+    <Section id="home" title="" activeTheme={activeTheme}>
+      
+      {activeTheme === themes.default && (
+        <>
+          <BackgroundEffects />
+          <FloatingLogos />
+        </>
+      )}
+      
+      <div className="flex flex-col items-center text-center relative z-10">
+        {activeTheme.logo ? (
+          <div className="fade-in-up">
+            <img 
+              src={activeTheme.logo} 
+              alt={`${activeTheme.name} logo`} 
+              className="mb-8 w-64 md:w-96 transition-all duration-500 glow-animation" 
+            />
+          </div>
+        ) : (
+          <div className="flex flex-col items-center fade-in-up">
+            <div className="relative mb-8">
+              <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight fade-in-up bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent" style={{animationDelay: '0.2s'}}>
+                {portfolioData.name}
+              </h1>
+              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full glow-animation"></div>
             </div>
-          )}
-          <p className={`text-xl md:text-2xl font-light mt-4 ${activeTheme.accent}`}>{portfolioData.tagline}</p>
+          </div>
+        )}
+        
+        <div className="fade-in-up" style={{animationDelay: '0.4s'}}>
+          <p className={`text-xl md:text-2xl font-light mt-6 ${activeTheme.accent} relative`}>
+            {portfolioData.tagline}
+            <span className="absolute right-0 top-0 w-1 h-full bg-current animate-pulse"></span>
+          </p>
+        </div>
+
+        {/* Enhanced particle system */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {[...Array(30)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute rounded-full opacity-20"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                width: `${2 + Math.random() * 4}px`,
+                height: `${2 + Math.random() * 4}px`,
+                background: i % 3 === 0 ? '#9333ea' : i % 3 === 1 ? '#3b82f6' : '#ec4899',
+                animation: `float ${3 + Math.random() * 4}s ease-in-out infinite`,
+                animationDelay: `${Math.random() * 2}s`
+              }}
+            ></div>
+          ))}
+        </div>
+        
+        <div className="fade-in-up" style={{animationDelay: '0.6s'}}>
           <ThemeSwitcher handleThemeChange={handleThemeChange} />
         </div>
-      </Section>
-    );
-  } else if (activeSection === 'about') {
+      </div>
+    </Section>
+  );
+} else if (activeSection === 'about') {
     return (
       <Section id="about" title="About Me" activeTheme={activeTheme}>
         <div className="max-w-3xl mx-auto text-lg space-y-6">
@@ -614,12 +822,18 @@ const PortfolioContent = ({ activeSection, activeTheme, handleThemeChange, onAdd
 // Theme switcher for the home page
 const ThemeSwitcher = ({ handleThemeChange }) => (
   <div className="mt-8 flex flex-wrap justify-center gap-4">
-    <button onClick={() => handleThemeChange('amazon')} className="p-4 w-28 md:w-32 rounded-lg text-sm md:text-base font-bold text-white bg-gray-800 transition-transform duration-300 hover:scale-105 hover:shadow-xl">Amazon</button>
-    <button onClick={() => handleThemeChange('google')} className="p-4 w-28 md:w-32 rounded-lg text-sm md:text-base font-bold text-white bg-gray-800 transition-transform duration-300 hover:scale-105 hover:shadow-xl">Google</button>
-    <button onClick={() => handleThemeChange('netflix')} className="p-4 w-28 md:w-32 rounded-lg text-sm md:text-base font-bold text-white bg-gray-800 transition-transform duration-300 hover:scale-105 hover:shadow-xl">Netflix</button>
+    {['amazon', 'google', 'netflix'].map((theme, index) => (
+      <button 
+        key={theme}
+        onClick={() => handleThemeChange(theme)} 
+        className="p-4 w-28 md:w-32 rounded-lg text-sm md:text-base font-bold text-white bg-gray-800 transition-all duration-300 hover:scale-110 hover:shadow-xl hover:bg-gray-700 transform hover:-translate-y-2 glow-animation"
+        style={{animationDelay: `${0.8 + index * 0.2}s`}}
+      >
+        {theme.charAt(0).toUpperCase() + theme.slice(1)}
+      </button>
+    ))}
   </div>
 );
-
 // Navigation bar for the default theme
 const Nav = ({ activeTheme, setActiveSection }) => {
   const navItems = [
@@ -1073,11 +1287,16 @@ export default function App() {
   return (
     <div className={`font-sans antialiased ${activeTheme.bg} ${activeTheme.text}`}>
       {showIntro && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-90">
-          <div className={`p-8 mx-4 max-w-lg text-center rounded-2xl shadow-lg transition-all duration-500 ${activeTheme.primary} ${activeTheme.text}`}>
-            {tourStep === 1 && (<><h3 className="text-2xl font-bold mb-4">Welcome, Recruiter!</h3><p className="mb-4">This portfolio is designed to be highly interactive. Let me give you a quick tour so you know what to expect.</p><button onClick={nextTourStep} className="px-6 py-2 rounded-full font-bold bg-white text-purple-600 hover:bg-gray-100 transition-colors duration-300">Start Tour <ChevronRight className="inline-block ml-2" /></button></>)}
-            {tourStep === 2 && (<><h3 className="text-2xl font-bold mb-4">See My Skills in Action</h3><p className="mb-4">Hover over certain elements on the site to see what technologies were used to create them.</p><button onClick={nextTourStep} className="px-6 py-2 rounded-full font-bold bg-white text-purple-600 hover:bg-gray-100 transition-colors duration-300">Next <ChevronRight className="inline-block ml-2" /></button></>)}
-            {tourStep === 3 && (<><h3 className="text-2xl font-bold mb-4">FAANG Theme Switcher</h3><p className="mb-4">On the next page, you'll find buttons to switch the entire website's theme to match different companies like Amazon, Google, or Netflix. Try it out!</p><button onClick={closeTour} className="px-6 py-2 rounded-full font-bold bg-white text-purple-600 hover:bg-gray-100 transition-colors duration-300">Got It! <Check className="inline-block ml-2" /></button></>)}
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black backdrop-blur-md">
+          <div className="p-8 mx-4 max-w-lg text-center rounded-2xl 
+                shadow-2xl bg-white/10 backdrop-blur-xl 
+                border border-purple-500/50 
+                text-white transition-all duration-500
+                animate-pulse-glow">
+
+            {tourStep === 1 && (<><h3 className="text-2xl font-bold mb-4">Welcome, Recruiter!</h3><div className="w-16 h-1 mx-auto mb-6 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full"></div><p className="mb-4">This portfolio is designed to be highly interactive. Let me give you a quick tour so you know what to expect.</p><button onClick={nextTourStep} className="px-6 py-2 rounded-full font-semibold bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg hover:scale-105 transition-transform duration-300">Start Tour <ChevronRight className="inline-block ml-2" /></button></>)}
+            {tourStep === 2 && (<><h3 className="text-2xl font-bold mb-4">See My Skills in Action</h3><div className="w-16 h-1 mx-auto mb-6 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full"></div><p className="mb-4">Hover over certain elements on the site to see what technologies were used to create them.</p><button onClick={nextTourStep} className="px-6 py-2 rounded-full font-semibold bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg hover:scale-105 transition-transform duration-300">Next <ChevronRight className="inline-block ml-2" /></button></>)}
+            {tourStep === 3 && (<><h3 className="text-2xl font-bold mb-4">FAANG Theme Switcher</h3><div className="w-16 h-1 mx-auto mb-6 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full"></div><p className="mb-4">On the next page, you'll find buttons to switch the entire website's theme to match different companies like Amazon, Google, or Netflix. Try it out!</p><button onClick={closeTour} className="px-6 py-2 rounded-full font-semibold bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg hover:scale-105 transition-transform duration-300">Got It! <Check className="inline-block ml-2" /></button></>)}
           </div>
         </div>
       )}
